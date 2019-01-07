@@ -47,17 +47,21 @@ docker stats的数据来自于/sys/fs/cgroup下的文件
 * 内存使用率 = memory.usage_in_bytes/memory.limit_in_bytes
 
 一般情况下，cgroup文件夹下的内容包括CPU、内存、磁盘、网络等信息：
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/f5f36198ff40fd2aac2dd2a6a3656997.png)
 
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/f6d0df08c95c331470b01ac9e7b6af17.png)
 
 如memory下的文件有：
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/56f83bece0395d763e1178453b47196f.png)
 
 几个常用的指标含义：
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/6462600e967476ecdf1188eececafc49.png)
 
 memory.stat中的信息是最全的：
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/a5b7fe3eae7680a3d5f38ca798ecf905.png)
 
 
