@@ -49,6 +49,7 @@ docker stats的数据来自于/sys/fs/cgroup下的文件
 一般情况下，cgroup文件夹下的内容包括CPU、内存、磁盘、网络等信息：
 
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/f5f36198ff40fd2aac2dd2a6a3656997.png)
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/f6d0df08c95c331470b01ac9e7b6af17.png)
 
 如memory下的文件有：
@@ -65,6 +66,7 @@ memory.stat中的信息是最全的：
 
 
 更多资料参考：[cgroup memory](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/resource_management_guide/sec-memory)
+
 原理分析：[Libcontainer 深度解析](https://www.infoq.cn/article/docker-container-management-libcontainer-depth-analysis)
 
 ## 总结
