@@ -1,10 +1,10 @@
 ## 概述
 
-* 1.为了解决docker stats的问题(存储、展示)，谷歌开源的cadvisor诞生了，cadvisor不仅可以搜集一台机器上所有运行的容器信息，还提供基础查询界面和http接口，方便其他组件如Prometheus进行数据抓取，或者cadvisor + influxdb + grafna搭配使用。
+  为了解决docker stats的问题(存储、展示)，谷歌开源的cadvisor诞生了，cadvisor不仅可以搜集一台机器上所有运行的容器信息，还提供基础查询界面和http接口，方便其他组件如Prometheus进行数据抓取，或者cadvisor + influxdb + grafna搭配使用。
   
-* 2.cAdvisor可以对节点机器上的资源及容器进行实时监控和性能数据采集，包括CPU使用情况、内存使用情况、网络吞吐量及文件系统使用情况
+   cAdvisor可以对节点机器上的资源及容器进行实时监控和性能数据采集，包括CPU使用情况、内存使用情况、网络吞吐量及文件系统使用情况
    
-* 3.Cadvisor使用Go语言开发，利用Linux的cgroups获取容器的资源使用信息，在K8S中集成在Kubelet里作为默认启动项，官方标配。
+   Cadvisor使用Go语言开发，利用Linux的cgroups获取容器的资源使用信息，在K8S中集成在Kubelet里作为默认启动项，官方标配。
    
 ## 安装
 
@@ -113,6 +113,7 @@ cadvisor地址：https://github.com/google/cadvisor
 通过new出来的memoryStorage以及sysfs实例，创建一个manager实例，manager的interface中定义了许多用于获取容器和machine信息的函数
 
 核心函数：
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/9c27a63d31346f4e6dc592e71977d568.png)
 
 生成manager实例的时候，还需要传递两个额外的参数，分别是
@@ -125,8 +126,11 @@ cadvisor地址：https://github.com/google/cadvisor
 以memory采集为例：
 
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/197e5adaba371a4000ef9fd087dbf987.png)
+
 具体的信息还是通过runc/libcontainer获得，libcontainer是对cgroup的封装。在/sys/fs/cgroup/memory中包含大量的了memory相关的信息（参考docker原生监控文章）
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/8d1b0d821546002af20648d131858457.png)
+
 Prometheus的收集器（cadvisor/metrics/prometheus.go）
 
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/10f40e80b299ff5df8a99acca63c2644.png)
