@@ -26,17 +26,22 @@ HPA属于前者。它可以根据CPU使用率或应用自定义metrics自动扩�
 * 1.11版本及以上默认使用metric-server
 
 1.部署和运行php-apache并将其暴露成为服务
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/4115bcf5b70e874b486c96a8743fa45a.png)
 
 2.创建HPA
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/69ebc98a51677feeb8276ff524635a38.png)
 
 如果为1.8及以下的k8s集群，指标正常，如果为1.11集群，需要执行如下操作。
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/f34cb8184245e0ad4ece9b0ed1fe36bc.png)
 
 4.向php-apache服务增加负载，验证自动扩缩容
  启动一个容器，并通过一个循环向php-apache服务器发送无限的查询请求（请在另一个终端中运行以下命令）
+ 
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/433ed01fba6be0167ba9fe4155abd9db.png)
 
 5.观察HPA是否生效
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/520c5b9289764dc539ee6fd9a7b23e85.png)
