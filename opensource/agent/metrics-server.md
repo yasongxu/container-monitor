@@ -84,9 +84,11 @@ Metrics server出现后，新的​Kubernetes 监控架构将变成上图的样�
 安装文件下载地址：[1.8+](https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B)，注意更换镜像地址为国内镜像
 
 `kubectl create -f metric-server/`
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/15473067971765.jpg)
 
 安装成功后，访问地址api地址为：
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/15473069387068.jpg)
 
    Metrics Server的资源占用量会随着集群中的Pod数量的不断增长而不断上升，因此需要
