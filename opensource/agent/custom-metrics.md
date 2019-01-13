@@ -35,6 +35,7 @@ Prometheus可以采集其它各种指标，但是prometheus采集到的metrics�
 * 开启Kubernetes aggregator功能（参考上文metric-server）
 
 k8s-prometheus-adapter的部署文件：
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/15473590839848.jpg)
 
  其中创建了一个叫做cm-adapter-serving-certs的secret，包含两个值: serving.crt和serving.key，这是由apiserver信任的证书。kube-prometheus项目中的gencerts.sh和deploy.sh脚本可以创建这个secret
@@ -44,9 +45,11 @@ k8s-prometheus-adapter的部署文件：
  以上组件均部署成功后，可以通过url获取指标
  
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/15473594105562.jpg)
+
 ## 基于自定义指标的HPA
 
 使用prometheus后，pod有一些自定义指标，如http_request请求数
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/01/15473595589311.jpg)
 
 创建一个HPA，当请求数超过每秒10次时进行自动扩容
