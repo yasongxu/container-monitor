@@ -10,9 +10,9 @@
 
 1.采集：
 
-* [Docker Stats](http://www.xuyasong.com/?p=1467)
-* [cAdvisor](http://www.xuyasong.com/?p=1483)
-* [Heapster](http://www.xuyasong.com/?p=1472)
+* Docker Stats
+* cAdvisor
+* Heapster
 * metrics-server
 * Custom Metrics
 * kube-state-metrics
