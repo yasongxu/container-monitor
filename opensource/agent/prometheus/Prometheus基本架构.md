@@ -2,10 +2,13 @@
 ### 系统架构图
 
 1.x版本的Prometheus的架构图为：
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/03/15502243628698.jpg)
+
 目前Prometheus版本为2.7，架构图为：
   
   ![](http://www.xuyasong.com/wp-content/uploads/2019/03/15502233228446.jpg)
+  
 
   Prometheus从exporter拉取数据，或者间接地通过网关gateway拉取数据（如果在k8s内部署，可以使用服务发现的方式），它默认本地存储抓取的所有数据，并通过一定规则进行清理和整理数据，并把得到的结果存储到新的时间序列中，采集到的数据有两个去向，一个是报警，另一个是可视化。PromQL和其他API可视化地展示收集的数据，并通过Alertmanager提供报警能力。
 
@@ -71,6 +74,7 @@ Prometheus采集数据是用的pull也就是拉模型,通过HTTP协议去采集�
 
 
 更多区别可以参考下图：
+
 ![](http://www.xuyasong.com/wp-content/uploads/2019/03/15502975113235.jpg)
 
 
