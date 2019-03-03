@@ -15,6 +15,11 @@
   * [kube-state-metrics](./opensource/agent/kube-state-metrics.md)
   * [node-exporter](./opensource/agent/node-exporter.md)
   * [Prometheus](./opensource/agent/Prometheus.md)
+    * [Prometheus概述](./opensource/agent/prometheus/Prometheus概述.md)
+    * [Prometheus基本架构](./opensource/agent/prometheus/Prometheus基本架构.md)
+    * [Prometheus部署方案](./opensource/agent/prometheus/Prometheus部署方案.md)
+    * [Prometheus的配置与服务发现](./opensource/agent/prometheus/Prometheus的配置与服务发现.md)
+    * [PromQL查询解析](./opensource/agent/prometheus/PromQL查询解析.md)
   * [Dockbix agent](./opensource/agent/dockbix-agent.md)
   * [cortex](./opensource/agent/cortex.md)
 
