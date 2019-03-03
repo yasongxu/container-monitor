@@ -1,99 +1,93 @@
-# 目录
+# 概述
 
-## 简介
-* [概述](./overview/intro.md)
-
-## 一. 开源方案
-
-* [第1章 采集]()
-  * [Docker Stats](./opensource/agent/docker-stats.md)
-  * [cAdvisor](./opensource/agent/cAdvisor.md)
-  * [Heapster](./opensource/agent/Heapster.md)
-   * [HPA](./opensource/agent/HPA.md)
-  * [metrics-server](./opensource/agent/metrics-server.md)
-  * [custom metrics](./opensource/agent/custom-metrics.md)
-  * [kube-state-metrics](./opensource/agent/kube-state-metrics.md)
-  * [node-exporter](./opensource/agent/node-exporter.md)
-  * [Prometheus](./opensource/agent/Prometheus.md)
-   * [Prometheus概述](./opensource/agent/prometheus/Prometheus概述.md)
-   * [Prometheus基本架构](./opensource/agent/prometheus/Prometheus基本架构.md)
-   * [Prometheus部署方案](./opensource/agent/prometheus/Prometheus部署方案.md)
-   * [Prometheus的配置与服务发现](./opensource/agent/prometheus/Prometheus的配置与服务发现.md)
-   * [PromQL查询解析](./opensource/agent/prometheus/PromQL查询解析.md)
-  * [Dockbix agent](./opensource/agent/dockbix-agent.md)
-  * [cortex](./opensource/agent/cortex.md)
-
-* [第2章 展示]()
-  * [Grafana](./opensource/dashboard/Grafana.md)
-  * [Kibana](./opensource/dashboard/Kibana.md)
-  * [Vizceral](./opensource/dashboard/Vizceral.md)
-  * [mozaik](./opensource/dashboard/mozaik.md)
-  * [Zabbix dashboard](./opensource/dashboard/Zabbix-dashboard.md)
+  随着越来越多的线上服务docker化，对容器的监控、报警变得越来越重要，容器监控有多种形态，有些是开源的（如promethues)，而另一些则是商业性质的(如Weave)，有些是集成在云厂商一键部署的（Rancher、谷歌云），有些是手动配置的，可谓百花齐放。
   
-* [第3章 报警]()
-  * [AlertManager](./opensource/alert/AlertManager.md)
-  * [consul-alerts](./opensource/alert/consul-alerts.md)
-  * [elastalert](./opensource/alert/elastalert.md)
-  * [Bosun](./opensource/alert/Bosun.md)
-  * [Cabot](./opensource/alert/Cabot.md)
+  本文将对现有的容器监控方案进行总结对比，监控解决方案的数量之多令人望而生畏，新的解决方案又不断涌现，下面将从开源方案（采集、展示、告警）、商业方案、云厂商、主机监控、日志监控、服务监控等方面进行列举，此篇为概述篇，包含汇总列表及脑图，具体分析将在后面补充更新，欢迎指正、补充。
+
+# 方案汇总
   
-## 二. 商业方案
+#### 一. 开源方案
 
-* [Sysdig](./enterprise/Sysdig.md)
-* [DataDog](./enterprise/DataDog.md)
-* [dynatrace](./enterprise/dynatrace.md)
-* [Weave](./enterprise/Weave.md)
-* [Cosale](./enterprise/Cosale.md)
-* [freshtracks](./enterprise/freshtracks.md)
-* [Sensu](./enterprise/Sensu.md)
-* [netsil](./enterprise/netsil.md)
-* [pingdom](./enterprise/pingdom.md)
+1.采集：
 
-## 三. 云厂商
+* Docker Stats
+* cAdvisor
+* Heapster
+* metrics-server
+* Custom Metrics
+* kube-state-metrics
+* node-exporter
+* Prometheus
+* Dockbix agent
+* cortex
 
-* [Google](./cloud-provider/google.md)
-* [AWS](./cloud-provider/aws.md)
-* [腾讯云](./cloud-provider/tencent.md)
-* [阿里云](./cloud-provider/ali.md)
-* [百度云](./cloud-provider/baidu.md)
-* [华为云](./cloud-provider/huawei.md)
+2.展示：
 
+* Grafana
+* Kibana
+* Vizceral
+* mozaik
+* Zabbix dashboard
 
-## 四. 主机监控
- 
-* [Zabbix](./host/Zabbix.md)
-* [nagios](./host/nagios.md)
-* [netdata](./host/netdata.md)
+3.报警：
 
-## 五. 日志监控
- 
-* [ELK](./alert/ELK.md)
-* [EFK](./alert/EFK.md)
-* [elastalert](./alert/elastalert.md)
-* [Graylog](./alert/Graylog.md)
-* [docker_monitoring_logging_alerting](./alert/docker_monitoring_logging_alerting.md)
+* AlertManager
+* consul-alerts
+* elastalert
+* Bosun
+* Cabot
 
-## 六. 服务监控
- 
-* [Jaeger](./service/Jaeger.md)
-* [Zipkin](./service/Zipkin.md)
-* [kubewatch](./service/kubewatch.md)
-* [riemann](./service/riemann.md)
+#### 二. 商业方案
 
+* Sysdig
+* DataDog
+* dynatrace
+* Weave
+* Thanos
+* Cosale
+* freshtracks
+* newrelic
+* Sensu
+* netsil
+* pingdom
+    
+#### 三. 云厂商
 
-## 七. 存储后端
+* Google cloud
+* AWS
+* 腾讯云
+* 阿里云
+* 百度云
+* 华为云
 
-* [InfluxDB](./db/InfluxDB.md)
-* [Kafka](./db/Kafka.md)
-* [Graphite](./db/Graphite.md)
-* [OpenTSDB](./db/OpenTSDB.md)
-* [ElasticSearch](./db/ElasticSearch.md)
+#### 四. 主机监控
 
-## 八. 最佳实践
+* Zabbix
+* nagios
+* netdata
 
-* [监控方案](./solution/monitor.md)
-* [日志方案](./solution/log.md)
-* [服务监控](./solution/service.md)
-* [业内方案](./solution/share/Readme.md)
-  * [京东](./solution/share/jd.md)
-  * [招商银行](./solution/share/zs.md)
+#### 五. 日志监控
+
+* ELK Stack
+* EFK Stack
+* elastalert
+* Graylog
+* docker_monitoring_logging_alerting
+
+#### 六. 服务监控
+
+* 	Jaeger
+* 	Zipkin
+* 	kubewatch
+* 	riemann
+    
+##### 七. 存储后端
+
+* 	InfluxDB
+* 	Kafka
+* 	Graphite
+* 	OpenTSDB
+* 	ElasticSearch
+  
+# 脑图
+![](http://www.xuyasong.com/wp-content/uploads/2019/01/26dc8b2a26b9a9a8604f817ed9876054-1.png)
