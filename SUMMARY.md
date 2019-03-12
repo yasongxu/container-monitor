@@ -20,6 +20,8 @@
    * [Prometheus部署方案](./opensource/agent/prometheus/Prometheus部署方案.md)
    * [Prometheus的配置与服务发现](./opensource/agent/prometheus/Prometheus的配置与服务发现.md)
    * [PromQL查询解析](./opensource/agent/prometheus/PromQL查询解析.md)
+   * [Prometheus数据可视化](./opensource/agent/prometheus/Prometheus数据可视化.md)
+   * [Prometheus存储机制](./opensource/agent/prometheus/Prometheus存储机制.md)
   * [Dockbix agent](./opensource/agent/dockbix-agent.md)
   * [cortex](./opensource/agent/cortex.md)
 
