@@ -22,6 +22,10 @@
    * [PromQL查询解析](./opensource/agent/prometheus/PromQL查询解析.md)
    * [Prometheus数据可视化](./opensource/agent/prometheus/Prometheus数据可视化.md)
    * [Prometheus存储机制](./opensource/agent/prometheus/Prometheus存储机制.md)
+   * [高可用prometheus：常见问题](./opensource/prometheus/prometheus-use.md)
+   * [高可用prometheus：thanos 实践](./opensource/prometheus/metric.md)
+   * [K8S常用指标分析](./opensource/prometheus/metric.md)
+   * [从kubectl top看K8S监控原理](./opensource/prometheus/kubectl-top.md)
   * [Dockbix agent](./opensource/agent/dockbix.md)
   * [cortex](./opensource/agent/cortex.md)
 
@@ -29,7 +33,6 @@
   * [Grafana](./opensource/dashboard/Grafana.md)
   * [Kibana](./opensource/dashboard/Kibana.md)
   * [Vizceral](./opensource/dashboard/Vizceral.md)
-  * [mozaik](./opensource/dashboard/mozaik.md)
   * [Zabbix dashboard](./opensource/dashboard/Zabbix-dashboard.md)
   
 * [第3章 报警]()
