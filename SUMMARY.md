@@ -14,7 +14,11 @@
   * [custom metrics](./opensource/agent/custom-metrics.md)
   * [kube-state-metrics](./opensource/agent/kube-state-metrics.md)
   * [node-exporter](./opensource/agent/node-exporter.md)
-  * [Prometheus](./opensource/agent/Prometheus.md)
+  * [Dockbix agent](./opensource/agent/dockbix.md)
+  * [cortex](./opensource/agent/cortex.md)
+
+* [第2章 Prometheus]()
+   * [Prometheus](./opensource/agent/Prometheus.md)
    * [Prometheus概述](./opensource/agent/prometheus/Prometheus概述.md)
    * [Prometheus基本架构](./opensource/agent/prometheus/Prometheus基本架构.md)
    * [Prometheus部署方案](./opensource/agent/prometheus/Prometheus部署方案.md)
@@ -23,26 +27,22 @@
    * [Prometheus数据可视化](./opensource/agent/prometheus/Prometheus数据可视化.md)
    * [Prometheus存储机制](./opensource/agent/prometheus/Prometheus存储机制.md)
    * [高可用prometheus：常见问题](./opensource/prometheus/prometheus-use.md)
-   * [高可用prometheus：thanos 实践](./opensource/prometheus/metric.md)
+   * [高可用prometheus：thanos 实践](./opensource/prometheus/thanos.md)
    * [K8S常用指标分析](./opensource/prometheus/metric.md)
    * [从kubectl top看K8S监控原理](./opensource/prometheus/kubectl-top.md)
-  * [Dockbix agent](./opensource/agent/dockbix.md)
-  * [cortex](./opensource/agent/cortex.md)
 
-* [第2章 展示]()
+* [第3章 展示与报警]()
   * [Grafana](./opensource/dashboard/Grafana.md)
   * [Kibana](./opensource/dashboard/Kibana.md)
   * [Vizceral](./opensource/dashboard/Vizceral.md)
   * [Zabbix dashboard](./opensource/dashboard/Zabbix-dashboard.md)
-  
-* [第3章 报警]()
   * [AlertManager](./opensource/alert/AlertManager.md)
   * [consul-alerts](./opensource/alert/consul-alerts.md)
   * [elastalert](./opensource/alert/elastalert.md)
   * [Bosun](./opensource/alert/Bosun.md)
   * [Cabot](./opensource/alert/Cabot.md)
   
-## 二. 商业方案
+## 二. 商业方案与云厂商
 
 * [Sysdig](./enterprise/Sysdig.md)
 * [DataDog](./enterprise/DataDog.md)
@@ -54,8 +54,6 @@
 * [netsil](./enterprise/netsil.md)
 * [pingdom](./enterprise/pingdom.md)
 
-## 三. 云厂商
-
 * [Google](./cloud-provider/google.md)
 * [AWS](./cloud-provider/aws.md)
 * [腾讯云](./cloud-provider/tencent.md)
@@ -63,14 +61,7 @@
 * [百度云](./cloud-provider/baidu.md)
 * [华为云](./cloud-provider/huawei.md)
 
-
-## 四. 主机监控
- 
-* [Zabbix](./host/Zabbix.md)
-* [nagios](./host/nagios.md)
-* [netdata](./host/netdata.md)
-
-## 五. 日志监控
+## 四. 日志监控
  
 * [ELK](./alert/ELK.md)
 * [EFK](./alert/EFK.md)
@@ -78,7 +69,7 @@
 * [Graylog](./alert/Graylog.md)
 * [docker_monitoring_logging_alerting](./alert/docker_monitoring_logging_alerting.md)
 
-## 六. 服务监控
+## 五. 服务监控
  
 * [Jaeger](./service/Jaeger.md)
 * [Zipkin](./service/Zipkin.md)
@@ -86,7 +77,7 @@
 * [riemann](./service/riemann.md)
 
 
-## 七. 存储后端
+## 六. 存储后端
 
 * [InfluxDB](./db/InfluxDB.md)
 * [Kafka](./db/Kafka.md)
@@ -94,9 +85,9 @@
 * [OpenTSDB](./db/OpenTSDB.md)
 * [ElasticSearch](./db/ElasticSearch.md)
 
-## 八. 最佳实践
+## 七. 最佳实践
 
-* [监控方案](./solution/monitor.md)
+* [监控方案](./opensource/prometheus/thanos.md)
 * [日志方案](./solution/log.md)
 * [服务监控](./solution/service.md)
 * [业内方案](./solution/share/Readme.md)
