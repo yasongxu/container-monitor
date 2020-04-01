@@ -233,8 +233,34 @@ grpc-address就是store api暴露的端口，也就是query 中--store是 xxx:19
  
 Store gateway也可以无限拓展，拉取同一份 bucket 数据。
 
+放个示意图，一个 thanos 副本，挂了多个地域的 store 组件
+![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/d4c9e5cd-7763-461f-8c64-cfa4e1cb2b89.jpg?x-oss-process=style/watermark)
 
-到这里，thanos 的基本使用就结束了，至于 compact 压缩和 bucket 校验，不是核心功能，rule组件我们没有使用，就不做介绍了。
+
+到这里，thanos 的基本使用就结束了，至于 compact 压缩和 bucket 校验，不是核心功能，compact我们只是简单部署了一下，rule组件我们没有使用，就不做介绍了。
+
+#### 5.查看数据
+
+有了多地域多副本的数据，就可以结合 grafana 做全局视图了，比如：
+
+按地域和集群查看 etcd 的性能指标：
+
+![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/aa1270a9-7190-4dcf-8665-b53742b9c550.jpg?x-oss-process=style/watermark)
+
+
+按地域、集群、机器查看核心组件监控，如多副本 master 机器上的各种性能
+
+![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/e2b10a46-2580-4f8a-89a0-c59b70777c9d.jpg?x-oss-process=style/watermark)
+
+数据聚合在一起之后，可以将所有视图都集中展示，比如还有这些面板：
+
+* 机器监控：node-exporter、process-exporter
+* pod 资源使用: cadvisor
+* docker、kube-proxy、kubelet 监控
+* scheduler、controller-manager、etcd、apiserver 监控
+* kube-state-metrics 元信息
+* k8s events 
+* mtail 等日志监控
 
 
 ## Receive 模式
@@ -312,3 +338,4 @@ thanos会基于打分机制，选择更为稳定的 replica 数据, 具体逻辑
 * https://www.youtube.com/watch?v=qQN0N14HXPM
 
 
+本文为容器监控实践系列文章，完整内容见：[container-monitor-book](https://yasongxu.gitbook.io/container-monitor/)
