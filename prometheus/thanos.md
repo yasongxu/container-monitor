@@ -1,7 +1,7 @@
 
 ## 背景
 
-在[prometheus 使用心得](http://www.xuyasong.com/?p=1921)文章中有简单提到prometheus 的高可用方案，尝试了联邦、remote write 之后，我们最终选择了 thanos 作为监控配套组件，利用其全局视图来管理我们的多地域/上百个集群的监控数据。本文主要介绍 thanos 的一些组件使用和心得体会。
+在[prometheus 使用心得](http://www.xuyasong.com/?p=1921)文章中有简单提到prometheus 的高可用方案，尝试了联邦、remote write 之后，我们最终选择了 thanos 作为监控配套组件，利用其全局视图来管理我们的多地域、200+集群的监控数据。本文主要介绍 thanos 的一些组件使用和心得体会。
 
 prometheus官方的高可用有几种方案：
 
@@ -40,7 +40,7 @@ prometheus官方的高可用有几种方案：
 thanos 的默认模式：sidecar 方式
 
 ![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/af3a7828-826b-42c7-9798-941867c67897.jpg?x-oss-process=style/watermark)
-除了 这个sidecar 方式，thanos还有一种不太常用的reviver 模式，后面会提到。
+除了 这个sidecar 方式，thanos还有一种不太常用的receive 模式，后面会提到。
 
 Thanos是一组组件，在[官网](https://thanos.io/)上可以看到包括：
 
@@ -57,7 +57,7 @@ Thanos是一组组件，在[官网](https://thanos.io/)上可以看到包括：
 * receive
 * downsample
 
-看起来组件很多，但其实部署时二进制只有一个，非常方便。只是搭配不同的参数实现不同的功能，如 query 组件就是 ./thanos query，sidecar 组件就是./thanos sidecar，组件all in one，也就是代码也只有一份，体积很小。
+看起来组件很多，但其实部署时二进制只有一个，非常方便。只是搭配不同的参数实现不同的功能，如 query 组件就是 ./thanos query，sidecar 组件就是./thanos sidecar，组件all in one，代码只有一份，体积很小。
 
 其实核心的sidecar+query就已经可以运行，其他的组件只是为了实现更多的功能
 
@@ -237,6 +237,15 @@ Store gateway也可以无限拓展，拉取同一份 bucket 数据。
 ![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/d4c9e5cd-7763-461f-8c64-cfa4e1cb2b89.jpg?x-oss-process=style/watermark)
 
 
+其中一个地域的数据统计：
+
+查询一个月历史数据速度还可以，主要是数据持久化没有运维压力，随意扩展，成本低。
+
+![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/11c0871c-4767-4501-9ddc-a362334ed36f.jpg?x-oss-process=style/watermark)
+
+![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/0bf78b72-b72b-4a45-ba00-1c0885260337.jpg?x-oss-process=style/watermark)
+
+
 到这里，thanos 的基本使用就结束了，至于 compact 压缩和 bucket 校验，不是核心功能，compact我们只是简单部署了一下，rule组件我们没有使用，就不做介绍了。
 
 #### 5.查看数据
@@ -246,7 +255,6 @@ Store gateway也可以无限拓展，拉取同一份 bucket 数据。
 按地域和集群查看 etcd 的性能指标：
 
 ![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/aa1270a9-7190-4dcf-8665-b53742b9c550.jpg?x-oss-process=style/watermark)
-
 
 按地域、集群、机器查看核心组件监控，如多副本 master 机器上的各种性能
 
@@ -283,7 +291,7 @@ Store gateway也可以无限拓展，拉取同一份 bucket 数据。
 
  压缩：官方文档有提到，使用sidecar时，需要将 prometheus 的--storage.tsdb.min-block-duration 和 --storage.tsdb.max-block-duration，这两个值设置为2h，两个参数相等才能保证prometheus关闭了本地压缩，其实这两个参数在 prometheus -help 中并没有体现，prometheus 作者也说明这只是为了开发测试才用的参数，不建议用户修改。而 thanos 要求关闭压缩是因为 prometheus 默认会以2，2*5，2*5*5的周期进行压缩，如果不关闭，可能会导致 thanos 刚要上传一个 block，这个 block 却被压缩中，导致上传失败。
 
-不过你也不必担心，因为在 sidecar 启动时，会坚持这两个参数，如果不合适，sidecar会启动失败
+不过你也不必担心，因为在 sidecar 启动时，会检查这两个参数，如果不合适，sidecar会启动失败
 ![43a131c689d9fedba5a7844363876ee7](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/4d174e53-959a-49da-87ae-c53563b57f4c.jpg?x-oss-process=style/watermark)
 
 
@@ -302,7 +310,7 @@ store-gateway 默认支持索引缓存，来加快tsdb 块的查找速度，但�
 
 Prometheus 2.0 已经对存储层进行了优化。例如按照时间和指标名字，连续的尽量放在一起。而 store gateway可以获取存储文件的结构，因此可以很好的将指标存储的请求翻译为最少的 object storage 请求。对于那种大查询，一次可以拿成百上千个 chunks 数据。
 
-二在 store 的本地，只有 index 数据是放入 cache的，chunk 数据虽然也可以，但是就要大几个数量级了。目前，从对象存储获取 chunk 数据只有很小的延时，因此也没什么动力去将 chunk 数据给 cache起来，毕竟这个对资源的需求很大。
+而在 store 的本地，只有 index 数据是放入 cache的，chunk 数据虽然也可以，但是就要大几个数量级了。目前，从对象存储获取 chunk 数据只有很小的延时，因此也没什么动力去将 chunk 数据给 cache起来，毕竟这个对资源的需求很大。
 
 store-gateway中的数据：
 ![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/c0569292-fe73-4867-80f8-11889ae1249b.jpg?x-oss-process=style/watermark)
@@ -339,3 +347,5 @@ thanos会基于打分机制，选择更为稳定的 replica 数据, 具体逻辑
 
 
 本文为容器监控实践系列文章，完整内容见：[container-monitor-book](https://yasongxu.gitbook.io/container-monitor/)
+
+
