@@ -486,6 +486,8 @@ predict_linear与deriv的关系，含义上约等于，predict_linear稍微准�
 +
   mem_free{instanceIP="100.75.155.55"}[1h]
 ```
+如果你要基于 metric做模型预测，可以参考下[forecast-prometheus](https://github.com/nfrumkin/forecast-prometheus)
+
 
 ## 错误的高可用设计
 
