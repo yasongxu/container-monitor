@@ -1,10 +1,7 @@
 
 文章结构请查看gitbook左侧目录导航
 
-Github地址：[https://github.com/yasongxu/container-monitor](https://github.com/yasongxu/container-monitor)
-
-GitBook地址：[https://yasongxu.gitbook.io/container-monitor/](https://yasongxu.gitbook.io/container-monitor/)
-
+也可以查看[blog 地址](http://www.xuyasong.com/?page_id=1827)
 
 # 概述
 
