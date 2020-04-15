@@ -1,5 +1,5 @@
 
-文章结构请查看gitbook左侧目录导航，也可以在[博客地址](http://www.xuyasong.com/?page_id=1827)上查看
+文章结构请查看gitbook左侧目录导航，也可以在[我的博客](http://www.xuyasong.com/?page_id=1827)上查看
 
 # 概述
 
