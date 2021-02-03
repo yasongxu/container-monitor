@@ -23,15 +23,15 @@ kubectl top 是基础命令，但是需要部署配套的组件才能获取到�
 
 kubectl top node: 查看node的使用情况
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/4b11d5c6-5d90-4744-8054-3db7a8871f73.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/4b11d5c6-5d90-4744-8054-3db7a8871f73.jpg?x-oss-process=style/watermark)
 
 kubectl top pod: 查看 pod 的使用情况
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/347ddaa3-ffb6-49ca-a71a-b9272785b5e8.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/347ddaa3-ffb6-49ca-a71a-b9272785b5e8.jpg?x-oss-process=style/watermark)
 
 不指定pod 名称，则显示命名空间下所有 pod，--containers可以显示 pod 内所有的container
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/539e3a54-fa2d-4243-84df-c187ae36bcb0.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/539e3a54-fa2d-4243-84df-c187ae36bcb0.jpg?x-oss-process=style/watermark)
 
 指标含义：
 
@@ -46,21 +46,21 @@ kubectl top pod: 查看 pod 的使用情况
 
 kubectl top 、 k8s dashboard 以及 HPA 等调度组件使用的数据是一样，数据链路如下：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/613aa6d5-5122-48b8-940c-5d484bfdf389.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/613aa6d5-5122-48b8-940c-5d484bfdf389.jpg?x-oss-process=style/watermark)
 
 使用 heapster 时：apiserver 会直接将metric请求通过 proxy 的方式转发给集群内的 hepaster 服务。
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/bebaf4a0-d3e1-41a8-b19d-23dea36f336e.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/bebaf4a0-d3e1-41a8-b19d-23dea36f336e.jpg?x-oss-process=style/watermark)
 
 
 而使用 metrics-server 时：apiserver是通过/apis/metrics.k8s.io/的地址访问metric
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/f9509563-30bc-469f-bb66-53e09a2a0487.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/f9509563-30bc-469f-bb66-53e09a2a0487.jpg?x-oss-process=style/watermark)
 
 
 这里可以对比下kubect get pod时的日志：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/3d6e7c8e-6dfa-41ed-a849-d7b2b48cf226.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/3d6e7c8e-6dfa-41ed-a849-d7b2b48cf226.jpg?x-oss-process=style/watermark)
 
 ### 3.2 metric api
 
@@ -84,12 +84,12 @@ kube-aggregator是对 apiserver 的有力扩展，它允许k8s的开发人员编
 kube-aggregator是 apiserver 中的实现，有些 k8s 版本默认没开启，你可以加上这些[配置](https://k8smeetup.github.io/docs/tasks/access-kubernetes-api/configure-aggregation-layer/#%E5%90%AF%E7%94%A8-apiserver-%E7%9A%84%E6%A0%87%E8%AE%B0)
 来开启。他的核心功能是动态注册、发现汇总、安全代理。
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/d4362b81-ae17-4ba5-a033-4fbe00e94642.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/d4362b81-ae17-4ba5-a033-4fbe00e94642.jpg?x-oss-process=style/watermark)
 
 
 如metric-server注册 pod 和 node 时:
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/5b932f40-7924-4b6d-91ba-6b3a8ab9e3b1.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/5b932f40-7924-4b6d-91ba-6b3a8ab9e3b1.jpg?x-oss-process=style/watermark)
 
 
 ### 3.4 监控体系
@@ -100,7 +100,7 @@ kube-aggregator是 apiserver 中的实现，有些 k8s 版本默认没开启，�
 
 * Custom Metrics(自定义指标)：由Prometheus Adapter提供API custom.metrics.k8s.io，由此可支持任意Prometheus采集到的指标。
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/ba2ee3ba-ef88-4d5c-a67d-e064c1f87e7f.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/ba2ee3ba-ef88-4d5c-a67d-e064c1f87e7f.jpg?x-oss-process=style/watermark)
 
 
 核心指标只包含node和pod的cpu、内存等，一般来说，核心指标作HPA已经足够，但如果想根据自定义指标:如请求qps/5xx错误数来实现HPA，就需要使用自定义指标了。
@@ -116,7 +116,7 @@ kube-aggregator是 apiserver 中的实现，有些 k8s 版本默认没开启，�
 
 示例，容器的内存使用量：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/0e04ba92-66d8-468b-9afa-4743997add0c.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/0e04ba92-66d8-468b-9afa-4743997add0c.jpg?x-oss-process=style/watermark)
 
 
 kubelet虽然提供了 metric 接口，但实际监控逻辑由内置的cAdvisor模块负责，演变过程如下：
@@ -134,13 +134,13 @@ cadvisor由谷歌开源，使用Go开发，项目地址也是google/cadvisor，c
 
 cadvisor 拿到的数据结构示例：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/159dd023-29e5-4ad5-b0eb-399c73681524.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/159dd023-29e5-4ad5-b0eb-399c73681524.jpg?x-oss-process=style/watermark)
 
 核心逻辑：
 
 通过new出来的memoryStorage以及sysfs实例，创建一个manager实例，manager的interface中定义了许多用于获取容器和machine信息的函数
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/11cf7010-abb5-4fbb-bf0c-271764eb3b5d.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/11cf7010-abb5-4fbb-bf0c-271764eb3b5d.jpg?x-oss-process=style/watermark)
 
 
 cadvisor的指标解读：[cgroup-v1](https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt)
@@ -162,11 +162,11 @@ cgroup文件中的值是监控数据的最终来源，如
 
 一般情况下，cgroup文件夹下的内容包括CPU、内存、磁盘、网络等信息：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/c473baf7-d62d-4823-aabf-e199773a0c64.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/c473baf7-d62d-4823-aabf-e199773a0c64.jpg?x-oss-process=style/watermark)
 如memory下的几个常用的指标含义：
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/22efa988-bd03-4f48-b3cb-329e24db478b.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/22efa988-bd03-4f48-b3cb-329e24db478b.jpg?x-oss-process=style/watermark)
 memory.stat中的信息是最全的：
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/8f3e1d35-d8f9-41d0-9e29-8fb5ef8d8cf5.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/8f3e1d35-d8f9-41d0-9e29-8fb5ef8d8cf5.jpg?x-oss-process=style/watermark)
 
 原理到这里结束，这里解释下最开始的kubectl top 的几个问题：
 
@@ -201,7 +201,7 @@ container_memory_working_set_bytes是容器真实使用的内存量，也是limi
 
 cadvisor 中的 container_memory_usage_bytes对应 cgroup 中的 memory.usage_in_bytes文件，但container_memory_working_set_bytes并没有具体的文件，他的计算逻辑在 cadvisor 的代码中，如下：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/b8cf86c6-3418-4644-9960-93f8f1bfa2c3.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/b8cf86c6-3418-4644-9960-93f8f1bfa2c3.jpg?x-oss-process=style/watermark)
 
 
 同理，node 的内存使用量也是container_memory_working_set_bytes
@@ -211,7 +211,7 @@ cadvisor 中的 container_memory_usage_bytes对应 cgroup 中的 memory.usage_in
 
 kubectl top node得到的 cpu 和内存值，并不是节点上所有 pod 的总和，不要直接相加。top node是机器上cgroup根目录下的汇总统计
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/64a63afe-7f2d-476a-8fba-5a3b6ee382f9.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/64a63afe-7f2d-476a-8fba-5a3b6ee382f9.jpg?x-oss-process=style/watermark)
 
 在机器上直接 top命令看到的值和 kubectl top node 不能直接对比，因为计算逻辑不同，如内存，大致的对应关系是(前者是机器上 top，后者是kubectl top):
 
@@ -219,7 +219,7 @@ kubectl top node得到的 cpu 和内存值，并不是节点上所有 pod 的总
 rss + cache = (in)active_anon + (in)active_file
 ```
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/aacec6d1-cfbe-455c-9acb-35a3d66a81bc.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/aacec6d1-cfbe-455c-9acb-35a3d66a81bc.jpg?x-oss-process=style/watermark)
 
 ### 4.4 kubectl top pod 和exec 进入 pod 后看到的 top 不一样
 
@@ -233,7 +233,7 @@ top命令的差异和上边 一致，无法直接对比，同时，就算你对 
 
 docker stats dockerID 可以看到容器当前的使用量：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/75884910-c1a7-4d39-8fe3-bf319e1a59f2.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/75884910-c1a7-4d39-8fe3-bf319e1a59f2.jpg?x-oss-process=style/watermark)
 如果你的 pod中只有一个 container，你会发现docker stats 值不等于kubectl top 的值，既不等于 container_memory_usage_bytes，也不等于container_memory_working_set_bytes。
 
 

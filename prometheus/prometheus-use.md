@@ -109,10 +109,10 @@ prometheus为避免时区混乱，在所有组件中专门使用Unix time和UTC�
 * 如果因为prometheus 自带的 ui不是本地时间，看着不舒服， [2.16 版本](https://github.com/prometheus/prometheus/commit/d996ba20ec9c7f1808823a047ed9d5ce96be3d8f)的新版 webui已经引入了local timezone 的选项。区别见下图
 * 如果你仍然想改prometheus 代码来适应自己的时区，可以参考[这篇文章](https://zhangguanzhang.github.io/2019/09/05/prometheus-change-timezone/)
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/2e415b33-c061-4dec-8433-777ba4edcb8c.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/2e415b33-c061-4dec-8433-777ba4edcb8c.jpg?x-oss-process=style/watermark)
 
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/b1afc5c8-b49f-44f8-bc06-086361c83024.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/b1afc5c8-b49f-44f8-bc06-086361c83024.jpg?x-oss-process=style/watermark)
 
 
 关于 timezone 的讨论，可以看这个[issue](https://github.com/prometheus/prometheus/issues/500)
@@ -130,7 +130,7 @@ prometheus当前最新版本为 2.16，prometheus还在不断迭代，因此尽�
 
 2.16 版本上有一套实验 UI，可以查看TSDB的状态，包括top 10的label、metric
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/9668d944-b7b7-425e-b86b-ae24c5aa2f0c.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/9668d944-b7b7-425e-b86b-ae24c5aa2f0c.jpg?x-oss-process=style/watermark)
 
 ## prometheus 大内存问题
 
@@ -147,9 +147,9 @@ prometheus当前最新版本为 2.16，prometheus还在不断迭代，因此尽�
 * 作者给了一个计算器，设置指标量、采集间隔之类的，计算 prometheus 需要的理论内存值：https://www.robustperception.io/how-much-ram-does-prometheus-2-x-need-for-cardinality-and-ingestion
 
 以我们的一个 promserver为例，本地只保留 2 小时数据，95 万 series，大概占用的内存如下：
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/596f6d60-2e37-460a-8da5-9dfd07b7170d.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/596f6d60-2e37-460a-8da5-9dfd07b7170d.jpg?x-oss-process=style/watermark)
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/5a5ea166-f9df-49d1-ab79-02a925c11322.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/5a5ea166-f9df-49d1-ab79-02a925c11322.jpg?x-oss-process=style/watermark)
 
 有什么优化方案：
 
@@ -234,7 +234,7 @@ rate并非想要捕获每个增量，因为有时候增量会丢失，例如实�
 
 如果 rate 的时间区间内有数据缺失，他会基于趋势进行推测，比如：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/eedead36-3aa5-4a1d-831d-dc53a80630b1.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/eedead36-3aa5-4a1d-831d-dc53a80630b1.jpg?x-oss-process=style/watermark)
 
 详细的内容可以看下这个[视频](https://www.youtube.com/watch?reload=9&v=67Ulrq6DxwA)
 
@@ -324,9 +324,9 @@ Postings entries (total label pairs): 10842822
 ....
 ```
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/295529ab-e033-4893-9b0a-cb0a3e698b35.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/295529ab-e033-4893-9b0a-cb0a3e698b35.jpg?x-oss-process=style/watermark)
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/0bd4bdab-2b42-4040-a245-66b9530aab8c.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/0bd4bdab-2b42-4040-a245-66b9530aab8c.jpg?x-oss-process=style/watermark)
 
 top10 高基数的 metric
 
@@ -402,9 +402,9 @@ kube-proxy 指标:
 端口为10249，默认 127开放，可以修改为 hostname 开放，--metrics-bind-address=机器 ip
 
 示例图：
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/4b5a97fb-6064-499a-be48-7ac53e66255d.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/4b5a97fb-6064-499a-be48-7ac53e66255d.jpg?x-oss-process=style/watermark)
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/45cfe3ed-6e35-4884-bc0b-975d6b5c1de5.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/45cfe3ed-6e35-4884-bc0b-975d6b5c1de5.jpg?x-oss-process=style/watermark)
 
 ## prometheus 重启慢
 
@@ -457,12 +457,12 @@ prometheus的deriv和predict_linear方法可以满足这类需求， promtheus �
 ```bash
 mem_free仅为举例，实际内存可用以mem_available为准
 ```
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/467d1419-1757-4130-810c-d00fe0b1169b.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/467d1419-1757-4130-810c-d00fe0b1169b.jpg?x-oss-process=style/watermark)
 
 
 deriv函数可以显示指标在一段时间的变化速度
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/56b44830-006e-4d9a-be5b-50e92f5c08bd.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/56b44830-006e-4d9a-be5b-50e92f5c08bd.jpg?x-oss-process=style/watermark)
 
 
 predict_linear方法是预测基于这种速度，最后可以达到的值
@@ -471,7 +471,7 @@ predict_linear方法是预测基于这种速度，最后可以达到的值
 predict_linear(mem_free{instanceIP="100.75.155.55"}[1h], 2*3600)/1024/1024
 ```
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/1967b016-6b0e-4876-98b7-b5c8228c4654.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/1967b016-6b0e-4876-98b7-b5c8228c4654.jpg?x-oss-process=style/watermark)
 
 你可以基于设置合理的报警规则，如小于 10 时报警
 
@@ -492,7 +492,7 @@ predict_linear与deriv的关系，含义上约等于，predict_linear稍微准�
 ## 错误的高可用设计
 
 有些人提出过这种类型的方案，想提高其扩展性和可用性。
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/84f4f78b-b7fc-48ee-8fb0-e9fe57e8d3b6.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/84f4f78b-b7fc-48ee-8fb0-e9fe57e8d3b6.jpg?x-oss-process=style/watermark)
 
 应用程序将metric 推到到消息队列如 kafaka，然后经过 exposer消费中转，再被 prometheus 拉取。产生这种方案的原因一般是有历史包袱、复用现有组件、想通过 mq 来提高扩展性。
 

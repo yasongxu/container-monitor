@@ -254,11 +254,11 @@ max_days：日志过期时间，默认是7,7天后删除
 
 创建了grafana之后，可以通过service暴露的端口地址查看页面:
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/9004c940-6847-4c6f-8a96-b8656b90f706.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/9004c940-6847-4c6f-8a96-b8656b90f706.jpg)
 
 登录成功后，会显示需要初始化的内容
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/65a45865-1239-4a4c-ad0d-a0c736504ad1.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/65a45865-1239-4a4c-ad0d-a0c736504ad1.jpg)
 
 
 **步骤二：配置数据源**
@@ -269,7 +269,7 @@ grafana支持多种数据源，可以在“type”的下拉框选项中看到，
 ```因为grafana和prometheus都在同一个k8s集群中，这里用svc地址```
 
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/b93da754-9100-4cb1-b692-2d1c00158aaf.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/b93da754-9100-4cb1-b692-2d1c00158aaf.jpg)
 
 
 点击“save and test”测试连接性。
@@ -278,22 +278,22 @@ grafana支持多种数据源，可以在“type”的下拉框选项中看到，
 **步骤三：创建面板**
 
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/9c27103e-ca3f-49ed-9dbf-188d3d5c53b3.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/9c27103e-ca3f-49ed-9dbf-188d3d5c53b3.jpg)
 
 
 有了数据源，接下来就是如何更好地展示数据，grafana支持多种类型的图表，如Graph、singlestat、Table等。可以组合出多种形式。这里先创建一个Demo，保存现有模板的快捷键是Ctrl + S
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/50beb30e-6111-4053-a1fb-a756c2b0414d.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/50beb30e-6111-4053-a1fb-a756c2b0414d.jpg)
 
 
 你的所有面板都可以在左上角的下拉框中找到：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/eae7ce0b-4d0c-482b-a70c-a8527a5bd3fb.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/eae7ce0b-4d0c-482b-a70c-a8527a5bd3fb.jpg)
 
 
 我们还可以导入现有的面板（Dashboard），大家贡献的模板地址：https://grafana.com/dashboards
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/24f2777b-10fc-48ab-9847-76c4a4f2667c.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/24f2777b-10fc-48ab-9847-76c4a4f2667c.jpg)
 
 选择左上角的➕号，然后import，有两种形式的导入：
 
@@ -308,9 +308,9 @@ grafana的面板、图表有很多配置，接下来我们说几个常用的配�
 
 示例：K8S的节点数量趋势图
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/3c30ffc8-de9b-433b-8aa9-d100f2f2f1cd.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/3c30ffc8-de9b-433b-8aa9-d100f2f2f1cd.jpg)
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/5bde561a-cf70-4037-8321-714fdba9f244.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/5bde561a-cf70-4037-8321-714fdba9f244.jpg)
 
 
 编辑图表时默认进入的是Metric，内容包括：
@@ -352,25 +352,25 @@ Hide time ocerride info:  上边相对时间设置之后在graph中会显示本�
 
 对于一些复杂场景，可能需要传入变量，如有多台机器，每台机器都要展示其cpu内存等指标。而机器列表又是动态的，这个时候就可以使用变量，示例：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/432ac5d4-64bb-493b-bb7c-ebb00d98507e.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/432ac5d4-64bb-493b-bb7c-ebb00d98507e.jpg)
 
 
 首先在该面板的setting中选择variables，注意是该面板的设置，不是全局设置
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/a52a7a28-b6dc-4c1f-8851-46da286483a1.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/a52a7a28-b6dc-4c1f-8851-46da286483a1.jpg)
 
 填写名称，下拉框选项的数据获取表达式，刷新周期，是否有ALL选项等，然后保存
 
 接下来在具体的图表中使用该变量
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/2afe913a-3ada-4b1a-a756-65110099a1f4.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/2afe913a-3ada-4b1a-a756-65110099a1f4.jpg)
 
 
 在metric中，将变量$Node写在表达式中做匹配即可。
 
 grafana的变量支持高级匹配，如$Node.*代表以Node开头的字符，利用变量的方式，可以实现多级筛选，满足更复杂的需求，如pod资源的查看
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/a60551dd-4aca-4c28-a50f-7dde11b0b9da.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/a60551dd-4aca-4c28-a50f-7dde11b0b9da.jpg)
 
 
 关于变量的更多信息：[what-is-a-variable](https://grafana.com/docs/reference/templating/#what-is-a-variable)
@@ -386,28 +386,28 @@ grafana在v4.0版本开始引入了报警功能。
 当可用节点数小于3时，报警给demo@126.com
 ```
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/0d753bfa-869d-40d2-b516-44ee8fabed69.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/0d753bfa-869d-40d2-b516-44ee8fabed69.jpg)
 
 
 alert支持avg、sum等表达式，不过持续时间依赖数据本身的采集频率。需要多测试一下。
 
 Notifications：配置报警的收件组和详细内容。而报警收件人的配置在专门的Alerting页面上
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/15808c2e-61ea-441a-b7a8-6abf48fe4a5e.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/15808c2e-61ea-441a-b7a8-6abf48fe4a5e.jpg)
 
 
 Alert Rules：已经配置的报警规则，并展示其触发状态。
 
 报警邮件的样式：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/d01935f8-9b7f-4ca1-9147-674e6cae2a1a.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/d01935f8-9b7f-4ca1-9147-674e6cae2a1a.jpg)
 
 
 **模板变量报警**
 
 以上的报警配置方式只适合没有变量传入的图表，如果遇到上边提到的选择node，传入变量的图表，就没办法支持了。
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/2f4b7d3e-a798-4ee7-9cd7-548dbddb453a.jpg)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/2f4b7d3e-a798-4ee7-9cd7-548dbddb453a.jpg)
 
 相关issue：https://github.com/grafana/grafana/issues/9334
 

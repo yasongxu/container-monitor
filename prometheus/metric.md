@@ -40,7 +40,7 @@ sum（
 by（container_name）
 
 ```
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/9fe8e5ee-6f3f-43a7-b188-8e3f75962499.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/9fe8e5ee-6f3f-43a7-b188-8e3f75962499.jpg?x-oss-process=style/watermark)
 
 ### 饱和率
 
@@ -170,7 +170,7 @@ Google在“SRE Handbook”中以“四个黄金信号”的概念为我们提�
 * Saturation — 饱和度
 
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/4b67da7b-181f-4f15-b9ba-c921317eeac8.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/4b67da7b-181f-4f15-b9ba-c921317eeac8.jpg?x-oss-process=style/watermark)
 
 当我第一次尝试将四个黄金信号应用于系统中的指标时，我经常被其中的一些术语以及它们如何应用于系统中的各个节点和应用程序所绊倒。
 
@@ -256,7 +256,7 @@ sum(node_load1) by (node) / count(node_cpu{mode="system"}) by (node) * 100
 ```
 
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/1fe5628b-3683-4724-b3ce-01437267a246.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/1fe5628b-3683-4724-b3ce-01437267a246.jpg?x-oss-process=style/watermark)
 
 
 似乎我们的系统之一的CPU饱和度高达250％以上。需要调查一下！
@@ -286,7 +286,7 @@ sum(node_memory_MemFree + node_memory_Cached + node_memory_Buffers)
 1 - sum(node_memory_MemAvailable) by (node) 
 / sum(node_memory_MemTotal) by (node)
 ```
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/6e5fa4a0-4c60-4732-a6fe-30ac43063df4.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/6e5fa4a0-4c60-4732-a6fe-30ac43063df4.jpg?x-oss-process=style/watermark)
 
 
 #### 饱和度
@@ -475,7 +475,7 @@ apiserver 是 go 程序，目前所有 prometheus 采集的指标都会包含 go
 访问 apiserver 的 metric 时需要的参数
 
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/193dfe87-4c09-45f0-a0d5-239246772ce0.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/193dfe87-4c09-45f0-a0d5-239246772ce0.jpg?x-oss-process=style/watermark)
 
 
 https://docs.signalfx.com/en/latest/integrations/agent/monitors/kubernetes-apiserver.html

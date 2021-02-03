@@ -39,7 +39,7 @@ prometheus官方的高可用有几种方案：
 
 thanos 的默认模式：sidecar 方式
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/af3a7828-826b-42c7-9798-941867c67897.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/af3a7828-826b-42c7-9798-941867c67897.jpg?x-oss-process=style/watermark)
 除了 这个sidecar 方式，thanos还有一种不太常用的receive 模式，后面会提到。
 
 Thanos是一组组件，在[官网](https://thanos.io/)上可以看到包括：
@@ -188,7 +188,7 @@ store 参数代表的就是刚刚启动的 sidecar 组件，启动了 3 份，�
 
 http-address 代表 query 组件本身的端口，因为他是个 web 服务，启动后，页面是这样的：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/4410b1ab-7997-46f1-839a-4db59b4d763d.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/4410b1ab-7997-46f1-839a-4db59b4d763d.jpg?x-oss-process=style/watermark)
 
 
 和 prometheus 几乎一样对吧，有了这个页面你就不需要关心最初的 prometheus 了，可以放在这里查询。
@@ -196,7 +196,7 @@ http-address 代表 query 组件本身的端口，因为他是个 web 服务，�
 点击 store，可以看到对接了哪些 sidecar。
 
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/7b2a286f-9caf-4d01-b4e8-016cea5db820.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/7b2a286f-9caf-4d01-b4e8-016cea5db820.jpg?x-oss-process=style/watermark)
 
 query 页面有两个勾选框，含义是：
 
@@ -234,16 +234,16 @@ grpc-address就是store api暴露的端口，也就是query 中--store是 xxx:19
 Store gateway也可以无限拓展，拉取同一份 bucket 数据。
 
 放个示意图，一个 thanos 副本，挂了多个地域的 store 组件
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/d4c9e5cd-7763-461f-8c64-cfa4e1cb2b89.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/d4c9e5cd-7763-461f-8c64-cfa4e1cb2b89.jpg?x-oss-process=style/watermark)
 
 
 其中一个地域的数据统计：
 
 查询一个月历史数据速度还可以，主要是数据持久化没有运维压力，随意扩展，成本低。
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/11c0871c-4767-4501-9ddc-a362334ed36f.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/11c0871c-4767-4501-9ddc-a362334ed36f.jpg?x-oss-process=style/watermark)
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/0bf78b72-b72b-4a45-ba00-1c0885260337.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/0bf78b72-b72b-4a45-ba00-1c0885260337.jpg?x-oss-process=style/watermark)
 
 
 到这里，thanos 的基本使用就结束了，至于 compact 压缩和 bucket 校验，不是核心功能，compact我们只是简单部署了一下，rule组件我们没有使用，就不做介绍了。
@@ -254,11 +254,11 @@ Store gateway也可以无限拓展，拉取同一份 bucket 数据。
 
 按地域和集群查看 etcd 的性能指标：
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/aa1270a9-7190-4dcf-8665-b53742b9c550.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/aa1270a9-7190-4dcf-8665-b53742b9c550.jpg?x-oss-process=style/watermark)
 
 按地域、集群、机器查看核心组件监控，如多副本 master 机器上的各种性能
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/e2b10a46-2580-4f8a-89a0-c59b70777c9d.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/e2b10a46-2580-4f8a-89a0-c59b70777c9d.jpg?x-oss-process=style/watermark)
 
 数据聚合在一起之后，可以将所有视图都集中展示，比如还有这些面板：
 
@@ -275,7 +275,7 @@ Store gateway也可以无限拓展，拉取同一份 bucket 数据。
 
 前面提到的所有组件都是基于 sidecar 模式配置的，但thanos还有一种Receive模式，不太常用，只是在[Proposals中出现](https://thanos.io/proposals/201812_thanos-remote-receive.md)
 
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/9df5c0d5-b15b-4f52-92ac-86bd9a347b56.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/9df5c0d5-b15b-4f52-92ac-86bd9a347b56.jpg?x-oss-process=style/watermark)
 
 因为一些网络限制，我们之前尝试过Receive方案，这里可以描述下Receive的使用场景：
 
@@ -292,7 +292,7 @@ Store gateway也可以无限拓展，拉取同一份 bucket 数据。
  压缩：官方文档有提到，使用sidecar时，需要将 prometheus 的--storage.tsdb.min-block-duration 和 --storage.tsdb.max-block-duration，这两个值设置为2h，两个参数相等才能保证prometheus关闭了本地压缩，其实这两个参数在 prometheus -help 中并没有体现，prometheus 作者也说明这只是为了开发测试才用的参数，不建议用户修改。而 thanos 要求关闭压缩是因为 prometheus 默认会以2，2*5，2*5*5的周期进行压缩，如果不关闭，可能会导致 thanos 刚要上传一个 block，这个 block 却被压缩中，导致上传失败。
 
 不过你也不必担心，因为在 sidecar 启动时，会检查这两个参数，如果不合适，sidecar会启动失败
-![43a131c689d9fedba5a7844363876ee7](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/4d174e53-959a-49da-87ae-c53563b57f4c.jpg?x-oss-process=style/watermark)
+![43a131c689d9fedba5a7844363876ee7](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/4d174e53-959a-49da-87ae-c53563b57f4c.jpg?x-oss-process=style/watermark)
 
 
 ### store-gateway
@@ -313,7 +313,7 @@ Prometheus 2.0 已经对存储层进行了优化。例如按照时间和指标�
 而在 store 的本地，只有 index 数据是放入 cache的，chunk 数据虽然也可以，但是就要大几个数量级了。目前，从对象存储获取 chunk 数据只有很小的延时，因此也没什么动力去将 chunk 数据给 cache起来，毕竟这个对资源的需求很大。
 
 store-gateway中的数据：
-![](http://vermouth-blog-image.oss-cn-hongkong.aliyuncs.com/monitor/c0569292-fe73-4867-80f8-11889ae1249b.jpg?x-oss-process=style/watermark)
+![](http://vermouth-blog-image.oss-accelerate.aliyuncs.com/monitor/c0569292-fe73-4867-80f8-11889ae1249b.jpg?x-oss-process=style/watermark)
 
 每个文件夹中其实是一个个的索引文件index.cache.json
 
